@@ -80,8 +80,7 @@
 - (NSManagedObjectModel *)managedObjectModel {
     if (_managedObjectModel) return _managedObjectModel;
 
-    NSURL *modelURL = [[NSBundle bundleForClass:[self class]] URLForResource:[self modelName] withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     return _managedObjectModel;
 }
 
